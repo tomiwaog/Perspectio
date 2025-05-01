@@ -11,6 +11,12 @@ Note: This measure perceived traits as opposed to actual traits.
 </ul>
 
 ## How to Use
+### Add your OpenAI
+Fetch your OpenAI key from openai.com
+```
+OPENAI_API_KEY="sk-proj-ddhdhdjdjd"
+```
+Replace "sk-proj-ddhdhdjdjd" with your Key.
 ### Install NodeJS
 Install NodeJs and package dependencies (npm install)
 ### Run the NodeJs Server
