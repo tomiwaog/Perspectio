@@ -11,18 +11,18 @@ async function generateAmbitionPrediction({ query, image_url }) {
   }
 
   const prompt = `
-    You are an AI image analysis assistant trained in interpreting human expressions and demeanor.
+  You are an AI image analysis assistant trained to evaluate human demeanor from images, including visual indicators of motivation, ambition, or disengagement.
 
-    Analyze the image and evaluate the ambitions and outlook of the individuals shown, based on their facial expressions, body language, posture, and visual context.
+  Analyze the image objectively and critically. Focus on facial expressions, body language, eye contact, posture, and clothing to assess the individual’s perceived level of ambition, motivation, or lack thereof. Avoid romanticizing or sugarcoating—if signs point to disengagement, apathy, or low drive, state that clearly. Do not assume positivity unless justified by clear visual cues.
 
-    Return a structured JSON response with the following keys:
-    - description (summary of the team’s appearance and demeanor)
-    - score (0–100 scale, representing perceived ambition)
-    - confidence (0.5–1.0 scale, how sure you are about this judgment)
+  Return a JSON object with the following fields:
+  - description: A concise summary of visual cues (facial expression, posture, grooming, attire) and what they suggest about the person’s attitude or drive.
+  - score: A number between 0–100 representing **perceived ambition or drive**, where 0 means extremely unambitious or disengaged, 100 means highly driven and focused.
+  - confidence: A number between 0.5–1.0 representing how confident you are in this assessment based on image clarity and cues.
 
-    User's query: "${query || 'Use facial expression and demeanor to predict the ambitions of this person'}"
+  User's query: "${query || 'Assess this person’s level of ambition or motivation from their expression and demeanor.'}"
 
-    Return ONLY the JSON object.
+  Return ONLY the JSON object.
     `;
 
   const response = await openai.chat.completions.create({

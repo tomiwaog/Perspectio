@@ -32,9 +32,15 @@ http://localhost:5000/v1/predictions
 ```
 {
     "query": "Use facial expression and demeanor to predict the ambitions and professional outlook of the subject in the image",
-    "image_url": "https://test.png"
 }
 ```
+
+### Image without Query Test
+A request without query parameter will yield the perceived traits of a subject in the image provided.
+To test this, send a post request to endpoint http://localhost:5000/v1/predictions without the "query" param.
+{
+    "image_url": "https://test.png"
+}
 
 ### Supported HTTP Verbs
 POST
