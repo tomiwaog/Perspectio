@@ -38,9 +38,11 @@ http://localhost:5000/v1/predictions
 ### Image without Query Test
 A request without query parameter will yield the perceived traits of a subject in the image provided.
 To test this, send a post request to endpoint http://localhost:5000/v1/predictions without the "query" param.
+```
 {
     "image_url": "https://test.png"
 }
+```
 
 ### Supported HTTP Verbs
 POST
