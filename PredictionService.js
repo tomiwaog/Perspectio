@@ -27,7 +27,8 @@ class PredictionService {
         // Validate the response structure
         const score = predictionResult?.score ?? null;
         const confidence = predictionResult?.confidence ?? null;
-        const label = score > 70 ? 'high' : score > 40 ? 'medium' : 'low';
+        const label = score >= 90 ? 'elite' : score >= 70 ? 'high' : score >= 40 ? 'medium' : 'low';
+
         const extras = predictionResult?.description ?? 'unknown';
         if (score === null || confidence === null || extras === 'unknown') {
             throw new Error('Prediction result is incomplete or invalid.');
