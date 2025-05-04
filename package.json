@@ -1,6 +1,6 @@
 {
   "name": "perspectio",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "type": "commonjs",
   "description": "The Project stimulates human's gut level impression of perceived traits about subject being tested. The output reflects subjective social impressions and may be influenced by visual biases, cultural norms, Nonverbal communication, facial expression and Body language Psychology. Note: This measure perceived traits as opposed to actual traits.",
   "main": "index.js",
@@ -13,9 +13,9 @@
     "axios": "^1.9.0",
     "dotenv": "^16.5.0",
     "express": "^5.1.0",
+    "level": "^10.0.0",
     "openai": "^4.96.2"
   },
-  "devDependencies": {},
   "keywords": [
     "perspective",
     "psychology"

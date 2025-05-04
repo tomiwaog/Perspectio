@@ -1,69 +1,86 @@
-# About Perspectio
-The Project stimulates human's gut level impression of perceived traits about subject being tested.
-The output reflects subjective social impressions and may be influenced by visual biases, cultural norms, Nonverbal communication, facial expression and Body language Psychology.
-Note: This measure perceived traits as opposed to actual traits.
+# **Perspectio Project**
 
-## Practical Application / Use Cases
-<ul>
-    <li>Bias Detection and Auditing Tool - Stimulate biases based on social factors</li>
-    <li>Employability Analysis (Perceived) - Profile Photo Analysis, Social Media Post Analysis</li>
-    <li>Retail High Profile Analysis - Identify potential High Revenue clients, can be impactful when powered with supporting tools.</li>
-</ul>
+**Perspectio** stimulates human gut-level impressions of perceived traits about a subject being tested. The system analyzes factors like visual biases, cultural norms, nonverbal communication, facial expression, and body language psychology.
 
-## How to Use
-### Add your OpenAI
-Fetch your OpenAI key from openai.com
-```
+**Note:** Perspectio measures **perceived** traits, not actual traits.
+
+---
+
+## **Practical Applications / Use Cases**
+
+* **Bias Detection and Auditing Tool**
+  Stimulate and detect biases based on social factors.
+
+* **Employability Analysis (Perceived)**
+  Analyze profile photos and social media posts for perceived professional traits.
+
+* **Retail High-Profile Analysis**
+  Identify potential high-revenue clients, especially when powered with supporting tools.
+
+* **Personal Brand Management**
+  Improve photo likeability and increase photo reach/popularity.
+
+---
+
+## **Dependencies**
+
+* **Server:** Node.js
+
+---
+
+## **How to Run**
+
+### 1. **Set up OpenAI API Key**
+
+Fetch your OpenAI key from [OpenAI](https://openai.com).
+Set your API key in the environment:
+
+```bash
 OPENAI_API_KEY="sk-proj-ddhdhdjdjd"
 ```
-Replace "sk-proj-ddhdhdjdjd" with your Key.
-### Install NodeJS
-Install NodeJs and package dependencies (npm install)
-### Run the NodeJs Server
-The index.js is the entry point for the Prediction Service.
+
+### 2. **Install Node.js and Dependencies**
+
+Ensure you have Node.js installed, then run the following command to install dependencies:
+
+```bash
+npm install
 ```
+
+### 3. **Start the Node.js Server**
+
+Launch the server by running:
+
+```bash
 node index.js
 ```
 
-### Program Entry Point:
+### 4. **Program Entry Point**
 
+The main API endpoint for predictions is:
+
+```bash
 http://localhost:5000/v1/predictions
-### Test Endpoint
 ```
+
+---
+
+## **API Usage**
+
+### **Test Endpoint Example:**
+
+#### **Request:**
+
+```json
 {
-    "query": "Use facial expression and demeanor to predict the ambitions and professional outlook of the subject in the image",
+    "image_url": "https://test.png",
+    "perception_type": "ambition"
 }
 ```
 
-### Image without Query Test
-A request without query parameter will yield the perceived traits of a subject in the image provided.
-To test this, send a post request to endpoint http://localhost:5000/v1/predictions without the "query" param.
-```
-{
-    "image_url": "https://test.png"
-}
-```
+#### **Response:**
 
-### Supported HTTP Verbs
-POST
-
-### Sample Input and Output
-
-#### Supported Output
-JSON
-
-
-
-#### Sample Input
-```
-{
-    "query": "Use facial expression and demeanor to predict the ambitions and professional outlook of the subject in the image",
-    "image_url": "https://test.png"
-}
-```
-
-#### Sample Output
-```
+```json
 {
     "query": "Use facial expression and demeanor to predict the ambitions and professional outlook of the subject in the image",
     "image_url": "https://test.png",
@@ -74,7 +91,53 @@ JSON
 }
 ```
 
-## Client Side
-A consume client can ping the endpoint http://localhost:5000/v1/predictions and implement its business logic for handling the response from the Perspectio Service.
+---
 
-The file "./client/consumerTest.js" is a sample client service utilizing the response to make additional business logic.
+### **Test Image Without Query:**
+
+#### **Request (without query):**
+
+```json
+{
+    "image_url": "https://test.png"
+}
+```
+
+---
+
+## **Client-Side Integration**
+
+A client-side application can send a request to the endpoint at `http://localhost:5000/v1/predictions`. The business logic for handling the response should be implemented based on the results returned by Perspectio.
+
+**Example:**
+The file `./client/consumerTest.js` provides a sample client service for consuming the API response and implementing further logic.
+
+---
+
+## **Supported HTTP Verbs:**
+
+* **POST**
+
+### **Versioning with Semantic Versioning (SemVer)**
+
+Perspectio follows **semantic versioning (SemVer)** for consistent and predictable version updates. This approach helps users understand the nature of changes in each version release.
+
+---
+## **Perspectio v2.0 - New Features**
+---
+
+### Cache for Faster Image Analysis
+
+Version 2.0.0 introduces an **image analysis cache** to significantly improve response times and reduce processing costs. This new feature stores the results of previously analyzed images, so that when the same image is requested again, it can be served from the cache instead of re-running the analysis. This provides:
+
+* **Faster Analysis:** Cached results are returned almost instantly for previously analyzed images.
+* **Cost Efficiency:** By reducing the need for repeated analysis, we save on processing costs, making the service more affordable for users.
+
+This cache system ensures that frequent requests for the same image are handled efficiently, providing quicker results without the need for redundant computations.
+
+### Option to specify Analysis Type
+Version 2.0 requires user callers to specify the type of perspective models needed.
+
+#### Perspective Types / Models
+Ambition Profiler
+Likeability Factor
