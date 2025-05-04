@@ -141,3 +141,20 @@ Version 2.0 requires user callers to specify the type of perspective models need
 #### Perspective Types / Models
 Ambition Profiler
 Likeability Factor
+
+## References
+- **Fiske’s Stereotype Content Model**  
+  [Stereotype Content Model - Wikipedia](https://en.wikipedia.org/wiki/Stereotype_content_model)
+
+- **Goffman’s Dramaturgical Model (Impression Management)**  
+  Erving Goffman, *The Presentation of Self in Everyday Life* (1956)
+
+- **Halo Effect & Fundamental Attribution Error**  
+  Thorndike, E. L. (1920). *A Constant Error in Psychological Ratings*  
+  Ross, L. (1977). *The intuitive psychologist and his shortcomings*
+
+- **Facial Trait Inference**  
+  Oosterhof, N. N., & Todorov, A. (2008). *The functional basis of face evaluation*. Proceedings of the National Academy of Sciences.
+
+- **First Impression Theory**  
+  Willis, J., & Todorov, A. (2006). *First impressions: Making up your mind after a 100-ms exposure to a face*. Psychological Science.
